@@ -1,18 +1,17 @@
 Vagrant::Config.run do |config|
-  # CONFIGURA AQUI LAS CARPETAS COMPARTIDAS, AÑADE TANTAS COMO NECESITES
-  # El primer parametro es un nombre descriptivo (Sin espacios)
-  # El segundo es la ruta que va a tener dentro de la VM
-  # El tercero es la ruta a la carpeta en tu local
-  config.vm.share_folder "zf2", "/var/source", "~/ZF\ Book/source"
+  # Configure the shared folders here
+  config.vm.share_folder "zf2", "/var/source", "~/Dropbox/ZF\ Book/source"
   
-  # NO TOQUES NADA DE LO QUE SALE DEBAJO
-  
+  # Configuration of the VM settings
   config.vm.box = "ubuntu-12.04"
   config.vm.box_url = "http://files.vagrantup.com/precise64.box"
-  config.vm.network :bridged
   config.vm.customize ["modifyvm", :id, "--memory", 1024]
-  config.vm.host_name = "zf2-server"
   
+  # Configuration of the network settings
+  config.vm.host_name = "zf2-server"
+  config.vm.network :hostonly, "192.168.56.2"
+  
+  # Configuration of the recipes
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = "./cookbooks"
     
@@ -26,9 +25,8 @@ Vagrant::Config.run do |config|
     chef.add_recipe "php::module_curl"
     chef.add_recipe "php::module_gd"
     chef.add_recipe "php::module_mysql"
-    chef.add_recipe "main"
     
-    # You may also specify custom JSON attributes:
+    # MySQL and Nginx configurations
     chef.json = {
       :mysql => {
         :server_root_password => "root",
