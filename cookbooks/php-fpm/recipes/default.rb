@@ -93,6 +93,13 @@ pkgs.each do |pkg|
   end
 end
 
+template "#{node['php']['pfm_conf_dir']}/php.ini" do
+  source "php.ini.erb"
+  owner "root"
+  group "root"
+  mode "0644"
+end
+
 service "php5-fpm" do
-  action [ :enable, :start ]
+  action [ :enable, :start, :restart ]
 end

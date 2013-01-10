@@ -19,12 +19,12 @@ Vagrant::Config.run do |config|
     chef.add_recipe "mysql::server"
     chef.add_recipe "nginx"
     chef.add_recipe "nginx::vhosts"
-    chef.add_recipe "php"
     chef.add_recipe "php-fpm"
     chef.add_recipe "php::module_apc"
     chef.add_recipe "php::module_curl"
     chef.add_recipe "php::module_gd"
     chef.add_recipe "php::module_mysql"
+    chef.add_recipe "xdebug"
     
     # MySQL and Nginx configurations
     chef.json = {

@@ -29,17 +29,20 @@ when "rhel", "fedora"
   default['php']['ext_conf_dir']  = '/etc/php.d'
   default['php']['fpm_user']      = 'nobody'
   default['php']['fpm_group']     = 'nobody'
+  default['php']['fpm_conf_dir']  = '/etc/php5/fpm'
   default['php']['ext_dir']       = "/usr/#{lib_dir}/php/modules"
 when "debian"
   default['php']['conf_dir']      = '/etc/php5/cli'
   default['php']['ext_conf_dir']  = '/etc/php5/conf.d'
   default['php']['fpm_user']      = 'www-data'
   default['php']['fpm_group']     = 'www-data'
+  default['php']['fpm_conf_dir']  = '/etc/php5/fpm'
 else
   default['php']['conf_dir']      = '/etc/php5/cli'
   default['php']['ext_conf_dir']  = '/etc/php5/conf.d'
   default['php']['fpm_user']      = 'www-data'
   default['php']['fpm_group']     = 'www-data'
+  default['php']['fpm_conf_dir']  = '/etc/php5/fpm'
 end
 
 default['php']['url'] = 'http://us.php.net/distributions'
