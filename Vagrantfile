@@ -1,6 +1,7 @@
 Vagrant::Config.run do |config|
   # Configure the shared folders here
-  config.vm.share_folder "zf2", "/var/source", "~/Dropbox/ZF\ Book/source"
+  config.vm.share_folder "zf2-api", "/var/source-api", "~/Dropbox/ZF\ Book/source-api"
+  config.vm.share_folder "zf2-client", "/var/source-client", "~/Dropbox/ZF\ Book/source-client"
   
   # Configuration of the VM settings
   config.vm.box = "ubuntu-12.04"
@@ -36,8 +37,12 @@ Vagrant::Config.run do |config|
       :nginx => {
         :sites => [
           {
-            :root_path => "/var/source/public",
-            :hostname => "zf2"
+            :root_path => "/var/source-api/public",
+            :hostname => "zf2-api"
+          },
+          {
+            :root_path => "/var/source-client/public",
+            :hostname => "zf2-client"
           }
         ],
         :default_site_enabled => false
