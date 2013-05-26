@@ -25,6 +25,7 @@ Vagrant::Config.run do |config|
     chef.add_recipe "php::module_curl"
     chef.add_recipe "php::module_gd"
     chef.add_recipe "php::module_mysql"
+    chef.add_recipe "postfix"
     chef.add_recipe "xdebug"
     chef.add_recipe "db"
     chef.add_recipe "hosts"
