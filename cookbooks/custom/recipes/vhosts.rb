@@ -17,3 +17,7 @@ end
 nginx_site 'zf2-client' do
   enable true
 end
+
+nginx_site 'zf2-api' do
+  enable true
+end
