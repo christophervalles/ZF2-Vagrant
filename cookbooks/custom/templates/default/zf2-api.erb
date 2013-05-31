@@ -1,0 +1,40 @@
+server {
+    listen 80;
+
+    server_name zf2-api;
+    
+    root /var/source-api/public;
+    index index.php index.html;
+
+    gzip on;
+    gzip_http_version 1.0;
+    gzip_comp_level 2;
+    gzip_proxied any;
+    gzip_min_length  1100;
+    gzip_buffers 16 8k;
+    gzip_types text/plain text/xml text/css application/x-javascript application/xml application/xml+rss text/javascript;
+
+    # Some version of IE 6 don't handle compression well on some mime-types, so just disable for them
+    gzip_disable "MSIE [1-6].(?!.*SV1)";
+
+    # Set a vary header so downstream proxies don't send cached gzipped content to IE6
+    gzip_vary on;
+    
+    location / {
+        # This is cool because no php is touched for static content
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+    
+    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+    #
+    location ~ \.php$ {
+        include fastcgi_params;
+        
+        fastcgi_pass 127.0.0.1:9000;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $document_root/index.php;
+    }
+
+    access_log /var/log/nginx/zf2-api-access.log;
+    error_log /var/log/nginx/zf2-api-error.log;
+}

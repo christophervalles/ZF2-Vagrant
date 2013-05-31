@@ -19,37 +19,31 @@ Vagrant::Config.run do |config|
     chef.add_recipe "apt"
     chef.add_recipe "mysql::server"
     chef.add_recipe "nginx"
-    chef.add_recipe "nginx::vhosts"
+    chef.add_recipe "custom::vhosts"
     chef.add_recipe "php-fpm"
     chef.add_recipe "php::module_apc"
     chef.add_recipe "php::module_curl"
     chef.add_recipe "php::module_gd"
     chef.add_recipe "php::module_mysql"
     chef.add_recipe "postfix"
-    chef.add_recipe "xdebug"
-    chef.add_recipe "db"
-    chef.add_recipe "hosts"
+    chef.add_recipe "custom::db"
+    chef.add_recipe "custom::hosts"
     
     # MySQL and Nginx configurations
     chef.json = {
       :mysql => {
         :server_root_password => "root",
         :server_repl_password => "repl",
-        :server_debian_password => "debian"
+        :server_debian_password => "debian",
+        :allow_remote_root => true,
+        :use_upstart => false
+      },
+      :cloud => {
+        :local_ipv4 => '0.0.0.0'
       },
       :nginx => {
-        :sites => [
-          {
-            :root_path => "/var/source-api/public",
-            :hostname => "zf2-api"
-          },
-          {
-            :root_path => "/var/source-client/public",
-            :hostname => "zf2-client"
-          }
-        ],
         :default_site_enabled => false
-      }
+      },
     }
   end
 end
