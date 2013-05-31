@@ -16,9 +16,6 @@
 [submodule "cookbooks/php-fpm"]
 	path = cookbooks/php-fpm
 	url = https://github.com/yevgenko/cookbook-php-fpm.git
-[submodule "cookbooks/xdebug"]
-	path = cookbooks/xdebug
-	url = https://github.com/xforty/chef-xdebug.git
 [submodule "cookbooks/openssl"]
 	path = cookbooks/openssl
 	url = https://github.com/opscode-cookbooks/openssl.git
