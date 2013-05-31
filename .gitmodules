@@ -28,3 +28,6 @@
 [submodule "cookbooks/php"]
 	path = cookbooks/php
 	url = https://github.com/opscode-cookbooks/php.git
+[submodule "postfix-master"]
+	path = cookbooks/postfix
+	url = https://github.com/opscode-cookbooks/postfix.git
