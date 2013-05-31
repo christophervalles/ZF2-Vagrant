@@ -28,6 +28,7 @@ Vagrant::Config.run do |config|
     chef.add_recipe "postfix"
     chef.add_recipe "custom::db"
     chef.add_recipe "custom::hosts"
+    chef.add_recipe "custom::restart_services"
     
     # MySQL and Nginx configurations
     chef.json = {
