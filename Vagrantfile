@@ -14,16 +14,14 @@ Vagrant.configure("2") do |config|
     chef.add_recipe "apt"
     chef.add_recipe "mysql::server"
     chef.add_recipe "nginx"
-    chef.add_recipe "nginx::vhosts"
     chef.add_recipe "php-fpm"
     chef.add_recipe "php::module_apc"
     chef.add_recipe "php::module_curl"
     chef.add_recipe "php::module_gd"
-    chef.add_recipe "php::module_mysql"
-    chef.add_recipe "xdebug"
+    chef.add_recipe "php::module_mysql" 
     chef.add_recipe "custom::db"
     chef.add_recipe "custom::hosts"
-    chef.add_recipe "custom::vhost"
+    chef.add_recipe "custom::vhosts"
     
     chef.json = {
       :mysql => {
