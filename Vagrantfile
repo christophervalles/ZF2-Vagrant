@@ -1,6 +1,6 @@
 Vagrant.configure("2") do |config|
-  config.vm.synced_folder "~/Dropbox/ZF\ Book/source-api", "/var/source-api"
-  config.vm.synced_folder "~/Dropbox/ZF\ Book/source-client", "/var/source-client"
+  config.vm.synced_folder "~/source-api", "/var/source-api"
+  config.vm.synced_folder "~/source-client", "/var/source-client"
   
   config.vm.box = "ubuntu-12.04"
   config.vm.box_url = "http://files.vagrantup.com/precise64.box"
