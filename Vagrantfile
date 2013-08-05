@@ -15,6 +15,7 @@ Vagrant.configure("2") do |config|
     chef.add_recipe "apt"
     chef.add_recipe "mysql::server"
     chef.add_recipe "nginx"
+    chef.add_recipe "php"
     chef.add_recipe "php-fpm"
     chef.add_recipe "php::module_apc"
     chef.add_recipe "php::module_curl"
