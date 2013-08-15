@@ -24,12 +24,14 @@ Vagrant.configure("2") do |config|
     chef.add_recipe "custom::db"
     chef.add_recipe "custom::hosts"
     chef.add_recipe "custom::vhosts"
+    chef.add_recipe "custom::mysql_permissions"
     
     chef.json = {
       :mysql => {
         :server_root_password => "root",
         :server_repl_password => "repl",
-        :server_debian_password => "debian"
+        :server_debian_password => "debian",
+        :bind_address => '0.0.0.0'
       },
       :nginx => {
         :default_site_enabled => false
