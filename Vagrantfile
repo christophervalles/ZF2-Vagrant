@@ -18,14 +18,16 @@ Vagrant.configure("2") do |config|
     chef.add_recipe "nginx"
     chef.add_recipe "php"
     chef.add_recipe "php-fpm"
+    chef.add_recipe "custom::fpm-config"
     chef.add_recipe "php::module_apc"
     chef.add_recipe "php::module_curl"
     chef.add_recipe "php::module_gd"
-    chef.add_recipe "php::module_mysql" 
+    chef.add_recipe "php::module_mysql"
     chef.add_recipe "custom::db"
     chef.add_recipe "custom::hosts"
     chef.add_recipe "custom::vhosts"
     chef.add_recipe "custom::mysql_permissions"
+    chef.add_recipe "custom::restart_services"
     
     chef.json = {
       :mysql => {
@@ -36,6 +38,14 @@ Vagrant.configure("2") do |config|
       },
       :nginx => {
         :default_site_enabled => false
+      },
+      :php => {
+        :directives => {
+          'pdo_mysql.default_socket' => '/var/run/mysqld/mysqld.sock',
+          'mysql.default_socket' => '/var/run/mysqld/mysqld.sock',
+          'mysqli.default_socket' => '/var/run/mysqld/mysqld.sock',
+          'date.timezone' => 'Europe/London'
+        }
       }
     }
   end
