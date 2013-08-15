@@ -13,6 +13,7 @@ Vagrant.configure("2") do |config|
     chef.cookbooks_path = "./cookbooks"
     
     chef.add_recipe "apt"
+    chef.add_recipe "custom::dotdeb"
     chef.add_recipe "mysql::server"
     chef.add_recipe "nginx"
     chef.add_recipe "php"
