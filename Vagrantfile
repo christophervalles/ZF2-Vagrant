@@ -19,7 +19,6 @@ Vagrant.configure("2") do |config|
     chef.add_recipe "php"
     chef.add_recipe "php-fpm"
     chef.add_recipe "custom::fpm-config"
-    chef.add_recipe "php::module_apc"
     chef.add_recipe "php::module_curl"
     chef.add_recipe "php::module_gd"
     chef.add_recipe "php::module_mysql"
