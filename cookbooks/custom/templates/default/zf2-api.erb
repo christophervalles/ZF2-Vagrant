@@ -30,7 +30,7 @@ server {
     location ~ \.php$ {
         include fastcgi_params;
         
-        fastcgi_pass 127.0.0.1:9000;
+        fastcgi_pass unix:/var/run/php-fpm-www.sock;
         fastcgi_index index.php;
         fastcgi_param SCRIPT_FILENAME $document_root/index.php;
     }
