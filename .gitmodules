@@ -28,3 +28,39 @@
 [submodule "postfix-master"]
 	path = cookbooks/postfix
 	url = https://github.com/opscode-cookbooks/postfix.git
+[submodule "cookbooks/smf"]
+	path = cookbooks/smf
+	url = https://github.com/livinginthepast/smf.git
+[submodule "cookbooks/rbac"]
+	path = cookbooks/rbac
+	url = https://github.com/livinginthepast/rbac.git
+[submodule "cookbooks/yum-mysql-community"]
+	path = cookbooks/yum-mysql-community
+	url = https://github.com/chef-cookbooks/yum-mysql-community.git
+[submodule "cookbooks/yum"]
+	path = cookbooks/yum
+	url = https://github.com/chef-cookbooks/yum.git
+[submodule "cookbooks/bluepill"]
+	path = cookbooks/bluepill
+	url = https://github.com/opscode-cookbooks/bluepill.git
+[submodule "cookbooks/rsyslog"]
+	path = cookbooks/rsyslog
+	url = https://github.com/opscode-cookbooks/rsyslog.git
+[submodule "cookbooks/runit"]
+	path = cookbooks/runit
+	url = https://github.com/opscode-cookbooks/runit.git
+[submodule "cookbooks/yum-epel"]
+	path = cookbooks/yum-epel
+	url = https://github.com/opscode-cookbooks/yum-epel.git
+[submodule "cookbooks/iis"]
+	path = cookbooks/iis
+	url = https://github.com/opscode-cookbooks/iis.git
+[submodule "cookbooks/windows"]
+	path = cookbooks/windows
+	url = https://github.com/opscode-cookbooks/windows.git
+[submodule "cookbooks/chef_handler"]
+	path = cookbooks/chef_handler
+	url = https://github.com/opscode-cookbooks/chef_handler.git
+[submodule "cookbooks/chef-sugar"]
+	path = cookbooks/chef-sugar
+	url = https://github.com/sethvargo/chef-sugar.git
